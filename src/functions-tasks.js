@@ -51,8 +51,12 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  const result = [];
+  funcs.forEach((func) => {
+    result.push(func.length);
+  });
+  return result;
 }
 
 /**
@@ -194,8 +198,17 @@ function partialUsingArguments(fn, ...args1) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  throw new Error('Not implemented');
+function getIdGeneratorFunction(startFrom) {
+  const cash = startFrom;
+  return () => {
+    return cash;
+    // if (cach.number === args) {
+    //   cach.number += 1;
+    //   return cach.number;
+    // }
+    // cach.number = args;
+    // return cach.number;
+  };
 }
 
 module.exports = {
