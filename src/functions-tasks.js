@@ -207,15 +207,11 @@ function partialUsingArguments(fn, ...args1) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-  const cash = startFrom;
+  const cache = startFrom;
+  let calls = -1;
   return () => {
-    return cash;
-    // if (cach.number === args) {
-    //   cach.number += 1;
-    //   return cach.number;
-    // }
-    // cach.number = args;
-    // return cach.number;
+    calls += 1;
+    return cache + calls;
   };
 }
 
